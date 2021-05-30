@@ -1,0 +1,14 @@
+<h1>Editing Prestamo</h1>
+
+<%= render 'form', prestamo: @prestamo %>
+
+<div class="text-center">
+<%= link_to @prestamo ,style:'color: var(--blue)'  do%> 
+    <i class="fas fa-info-circle fa-3x blue"></i>
+    <% end %>
+
+    |
+<%= link_to  prestamos_path ,style:'color: var(--orange)'  do %>
+<i class="fas fa-caret-square-left fa-3x"></i>
+<% end %>
+</div>

@@ -1,0 +1,48 @@
+<div class="text-center">
+<%= form_with(model: prestamo) do |form| %>
+  <% if prestamo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(prestamo.errors.count, "error") %> prohibited this prestamo from being saved:</h2>
+
+      <ul>
+        <% prestamo.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ 
+  <div class="field">
+  <div class="col-auto my-1">
+    <%= form.label :fecha %>
+    <%= form.date_select :fecha ,{:start_year => Date.current.year, :end_year => 1930}, {class: "custom-select mr-sm-2", style:"max-width:150px"} %>
+
+  </div>
+
+  </div>
+
+  <div class="field"> 
+  <div class="custom-control custom-switch">
+    <%= form.label :estado %>
+   
+    <%= form.check_box :estado  %>
+    </div>
+  </div>
+
+  <!--<div class="field">
+    <%= form.label :Usuario_id %>
+    <%= form.text_field :Usuario_id %>
+  </div>-->
+  <div class="field">
+  <%= form.label :Usuario_id %>
+  <%= form.select :Usuario_id, options_for_select(Usuario.all.map{|s|[s.nombres, s.id]}) ,{}, {class: "custom-select mr-sm-2", style:"max-width:150px"} %>
+</div>
+<div class="actions">
+
+    <%= form.submit nil, :class => 'btn btn-primary' %>
+  </div>
+
+<% end %>
+
+</div>

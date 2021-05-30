@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @detalle.cantidad %>
+</p>
+
+<p>
+  <strong>Prestamo:</strong>
+  <%= @detalle.Prestamo_id %>
+</p>
+
+<p>
+  <strong>Libro:</strong>
+  <%= @detalle.libro_id %>
+</p>
+
+<%= link_to 'Edit', edit_detalle_path(@detalle) %> |
+<%= link_to 'Back', detalles_path %>

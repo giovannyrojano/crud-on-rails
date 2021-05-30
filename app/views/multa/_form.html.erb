@@ -1,0 +1,37 @@
+<%= form_with(model: multum) do |form| %>
+  <% if multum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(multum.errors.count, "error") %> prohibited this multum from being saved:</h2>
+
+      <ul>
+        <% multum.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :valor %>
+    <%= form.number_field :valor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha %>
+    <%= form.date_select :fecha %>
+  </div>
+
+  <div class="field">
+    <%= form.label :estado %>
+    <%= form.check_box :estado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Prestamo_id %>
+    <%= form.text_field :Prestamo_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

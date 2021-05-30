@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @multum.valor %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @multum.fecha %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @multum.estado %>
+</p>
+
+<p>
+  <strong>Prestamo:</strong>
+  <%= @multum.Prestamo_id %>
+</p>
+
+<%= link_to 'Edit', edit_multum_path(@multum) %> |
+<%= link_to 'Back', multa_path %>

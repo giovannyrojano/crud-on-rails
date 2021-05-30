@@ -1,0 +1,63 @@
+
+<div class="text-center">
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+
+<div class="col">
+<p> 
+<h2>
+
+  <strong>Usuario</strong>
+ 
+ <h2> <%= @prestamo.Usuario.id %>
+  -
+  <%= @prestamo.Usuario.nombres %>
+  </h2>
+</p>
+</div>
+
+<div class="col">
+<p>
+<h2>
+  <strong>Fecha</strong>
+  <br>
+  <%= @prestamo.fecha %>
+</h2>
+  </p>
+  </div>
+
+  <div class="col">
+<p>
+<h2>
+  <strong>Estado</strong>
+  <br>
+  <%= check_box_tag "prestamo", @prestamo.estado,  @prestamo.estado ,:disabled => true %>
+</h2>
+  </p>
+  </div>
+
+
+  <!--<p>
+  <strong>Usuario:</strong>
+  <%= @prestamo.Usuario_id %>
+
+</p>-->
+
+</div>
+
+
+<%= link_to edit_prestamo_path(@prestamo) , style: 'color: var(--yellow) ;' do %>
+  
+  <i class="fas fa-pen-square fa-3x yellow "></i>
+  <% end %>
+  
+  |
+
+
+<%= link_to  prestamos_path ,style:'color: var(--orange)'  do %>
+  <i class="fas fa-caret-square-left fa-3x"></i>
+  <% end %>
+
+
+</div>
