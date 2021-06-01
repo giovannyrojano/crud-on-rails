@@ -1,19 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="text-center mt-2">
 
-<p>
+<h2 id="notice"><%= notice %></h2>
+
+
+<div class="row">
+
+<div class="col">
+<h2>
   <strong>Titulo:</strong>
   <%= @libro.titulo %>
-</p>
+</h2>
 
-<p>
+</div>
+<div class="col">
+<h2>
   <strong>Autor:</strong>
-  <%= @libro.autor %>
-</p>
+ <%= @libro.autor %>
 
-<p>
+</h2>
+
+</div>
+<div class="col">
+<h2>
   <strong>Anyo:</strong>
   <%= @libro.anyo %>
-</p>
+</h2>
+</div>
+</div>
 
-<%= link_to 'Edit', edit_libro_path(@libro) %> |
-<%= link_to 'Back', libros_path %>
+<%= link_to edit_libro_path(@libro) , style: 'color: var(--yellow) ;' do %>
+  
+  <i class="fas fa-pen-square fa-3x yellow "></i>
+  <% end %>
+
+|
+<%= link_to  libros_path ,style:'color: var(--orange)'  do %>
+  <i class="fas fa-caret-square-left fa-3x"></i>
+  <% end %>
+
+</div>

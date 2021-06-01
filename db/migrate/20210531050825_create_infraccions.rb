@@ -1,6 +1,6 @@
-class CreateMulta < ActiveRecord::Migration[6.1]
+class CreateInfraccions < ActiveRecord::Migration[6.1]
   def change
-    create_table :multa do |t|
+    create_table :infraccions do |t|
       t.integer :valor
       t.date :fecha
       t.boolean :estado

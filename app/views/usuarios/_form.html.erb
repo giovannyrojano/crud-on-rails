@@ -10,43 +10,48 @@
       </ul>
     </div>
   <% end %>
+  <div class="container">
+  <div class="row justify-content-center">
+	<div class="col-12 col-md-8 col-lg-6 pb-5">                  
+    <div class="field">
+        <%= form.label :nombres %>
+        <%= form.text_field :nombres, class:"form-control col-md-9"%>
+      </div>
 
-  <div class="field">
-    <%= form.label :nombres %>
-    <%= form.text_field :nombres %>
-  </div>
+      <div class="field">
+        <%= form.label :apellidos %>
+        <%= form.text_field :apellidos , class:"form-control col-md-9" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :apellidos %>
-    <%= form.text_field :apellidos %>
-  </div>
+      <div class="field">
+        <%= form.label :direccion %>
+        <%= form.text_field :direccion , class:"form-control col-md-9" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :direccion %>
-    <%= form.text_field :direccion %>
-  </div>
+      <div class="field">
+        <%= form.label :telefono %>
+        <%= form.text_field :telefono, class:"form-control col-md-9"%>
+      </div>
 
-  <div class="field">
-    <%= form.label :telefono %>
-    <%= form.text_field :telefono %>
-  </div>
+      <div class="field">
+        <%= form.label :login %>
+        <%= form.text_field :login ,class:"form-control col-md-9"%>
+      </div>
 
-  <div class="field">
-    <%= form.label :login %>
-    <%= form.text_field :login %>
-  </div>
+      <div class="field">
+        <%= form.label :password %>
+        <%= form.text_field :password,class:"form-control col-md-9" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password %>
-  </div>
+      <div class="field">
+        <%= form.label :email %>
+        <%= form.text_field :email,class:"form-control col-md-9" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+      <div class="actions">
+        <%= form.submit nil, :class => 'btn btn-primary' , style: 'margin: 0 25%' %>
+      </div>
+    <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
+</div>

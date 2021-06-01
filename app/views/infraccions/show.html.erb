@@ -1,0 +1,46 @@
+<div class="text-center mt-2">
+
+
+
+<h2 id="notice"><%= notice %></h2>
+<div class="row">
+
+<div class="col">
+<h2>
+  <strong>Valor</strong> <br>
+  <%= @infraccion.valor %>
+</h2>
+</div>
+<div class="col">
+<h2>
+  <strong>Fecha</strong> <br>
+  <%= @infraccion.fecha %>
+</h2>
+</div>
+<div class="col">
+<h2>
+  <strong>Estado</strong> <br>
+  <%= @infraccion.estado %>
+</h2>
+
+</div>
+<div class="col">
+<h2>
+  <strong> No Prestamo</strong><br>
+  <%= link_to @infraccion.Prestamo_id,'prestamos/'+@infraccion.Prestamo_id.to_s  %>
+</h2>
+
+</div>
+
+</div>
+<%= link_to edit_infraccion_path(@infraccion) , style: 'color: var(--yellow) ;' do %>
+  
+  <i class="fas fa-pen-square fa-3x yellow "></i>
+  <% end %>
+
+|
+<%= link_to  infraccions_path ,style:'color: var(--orange)'  do %>
+  <i class="fas fa-caret-square-left fa-3x"></i>
+  <% end %>
+
+</div>

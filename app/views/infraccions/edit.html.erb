@@ -1,0 +1,13 @@
+<h1>Editing Infraccion</h1>
+
+<%= render 'form', infraccion: @infraccion %>
+<div class="text-center">
+
+<%= link_to @infraccion  ,style:'color: var(--blue)'  do%> 
+    <i class="fas fa-info-circle fa-3x blue"></i>
+    <% end %>
+|
+<%= link_to  infraccions_path ,style:'color: var(--orange)'  do %>
+<i class="fas fa-caret-square-left fa-3x"></i>
+<% end %>
+</div>

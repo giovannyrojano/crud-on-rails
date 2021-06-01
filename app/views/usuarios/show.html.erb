@@ -1,39 +1,65 @@
-<p id="notice"><%= notice %></p>
+<div class="text-center mt-2">
 
-<p>
+
+<h2 id="notice"><%= notice %></h2>
+
+
+<div class="row">
+
+<div class="col">
+<h2>
   <strong>Nombres:</strong>
   <%= @usuario.nombres %>
-</p>
-
-<p>
+</h2>
+</div>
+<div class="col">
+<h2>
   <strong>Apellidos:</strong>
   <%= @usuario.apellidos %>
-</p>
+</h2>
 
-<p>
+</div>
+<div class="col">
+<h2>
   <strong>Direccion:</strong>
   <%= @usuario.direccion %>
-</p>
-
-<p>
+</h2>
+</div>
+<div class="col">
+<h2>
   <strong>Telefono:</strong>
   <%= @usuario.telefono %>
-</p>
-
-<p>
+</h2>
+</div>
+<div class="col">
+<h2>
   <strong>Login:</strong>
   <%= @usuario.login %>
-</p>
-
-<p>
+</h2>
+</div>
+<div class="col">
+<h2>
   <strong>Password:</strong>
   <%= @usuario.password %>
-</p>
-
-<p>
+</h2>
+</div>
+<div class="col">
+<h2>
   <strong>Email:</strong>
   <%= @usuario.email %>
-</p>
+</h2>
+</div>
 
-<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
-<%= link_to 'Back', usuarios_path %>
+</div>
+
+<%= link_to edit_usuario_path(@usuario) , style: 'color: var(--yellow) ;' do %>
+  
+  <i class="fas fa-pen-square fa-3x yellow "></i>
+  <% end %>
+
+|
+<%= link_to  usuarios_path ,style:'color: var(--orange)'  do %>
+  <i class="fas fa-caret-square-left fa-3x"></i>
+  <% end %>
+
+</div>

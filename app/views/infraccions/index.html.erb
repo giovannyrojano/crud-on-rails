@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Infracciones</h1>
+
+<div class="text-right mb-3 mr-3">
+
+<%= button_to  new_infraccion_path, class: "btn btn-info",method: :get  do %>
+<i class="fas fa-plus">Nuevo Multa</i>
+<% end %>
+</div>
+
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Valor</th>
+      <th>Fecha</th>
+      <th>Estado</th>
+      <th>Prestamo</th>
+     <th scope="col" > <span style="padding-left:30%">Accion</span></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @infraccions.each do |infraccion| %>
+      <tr>
+        <td><%= infraccion.valor %></td>
+        <td><%= infraccion.fecha %></td>
+        <td><%= check_box_tag "infraccion",infraccion.estado ,infraccion.estado ,:disabled => true %></td>
+        <td><%= link_to infraccion.Prestamo_id,'prestamos/'+infraccion.Prestamo_id.to_s  %></td>
+      
+      
+      <!--  <td><%= link_to 'Show', infraccion %></td>
+        <td><%= link_to 'Edit', edit_infraccion_path(infraccion) %></td>
+        <td><%= link_to 'Destroy', infraccion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+     
+     -->
+
+ <td  style="padding-left:5%">
+
+  <%= link_to infraccion , style: 'color: var(--blue); margin-right:5%' do %>
+    <i class="fas fa-info-circle fa-3x blue"></i>
+    <% end %>
+
+    <%= link_to edit_infraccion_path(infraccion), style: 'color: var(--yellow) ; margin-right:5%' do %>
+ <i class="fas fa-pen-square fa-3x yellow "></i>
+ <% end %>
+
+  <%= link_to  infraccion, method: :delete, data: { confirm: 'Are you sure?' } , style: 'color: var(--red)' do %> 
+  <i class="fas fa-minus-square fa-3x"></i>  
+  <% end %>
+</td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

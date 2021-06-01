@@ -1,0 +1,61 @@
+<h1>Prestamos por usuario </h1>
+<div class="text-center">
+<%= form_with url: " /prestamos_usuario/", method: :get do |form| %>
+
+  <div class="field">
+  <%= form.label :Usuario_id %>
+  <%= form.select :Usuario_id, options_for_select(Usuario.all.map{|s|[s.nombres, s.id]}) ,{}, {class: "custom-select mr-sm-2", style:"max-width:150px"} %>
+</div>
+
+<div class="actions">
+    <%= form.submit nil, :class => 'btn btn-primary' %>
+  </div>
+  <% end %>
+</div>
+
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+    <th scope="col">No</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Usuario</th>
+      <th scope="col" > <span style="padding-left:30%">Accion</span></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prestamos.each do |prestamo| %>
+      <tr>
+      <th scope="row"><%= prestamo.id %></th>
+        <td><%= prestamo.fecha %></td>
+     <!--   <td><%= prestamo.estado %></td> -->
+        <td> <%= check_box_tag "prestamo", prestamo.estado,  prestamo.estado ,:disabled => true %></td>
+       
+        <td><%= prestamo.Usuario.id.to_s+"-"+prestamo.Usuario.nombres %></td>
+
+      <!--  <td><%= link_to 'Show', prestamo %>   </td>
+        <td><%= link_to 'Edit', edit_prestamo_path(prestamo) %></td>
+        <td><%= link_to 'Destroy', prestamo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+-->
+
+ <td  style="padding-left:5%">
+
+  <%= link_to prestamo , style: 'color: var(--blue); margin-right:5%' do %>
+    <i class="fas fa-info-circle fa-3x blue"></i>
+    <% end %>
+
+ 
+ <%= link_to edit_prestamo_path(prestamo), style: 'color: var(--yellow) ; margin-right:5%' do %>
+ <i class="fas fa-pen-square fa-3x yellow "></i>
+ <% end %>
+ 
+ <%= link_to  prestamo, method: :delete, data: { confirm: 'Are you sure?' } , style: 'color: var(--red)' do %> 
+  <i class="fas fa-minus-square fa-3x"></i>  
+  <% end %>
+  </td>
+
+ </tr>
+    <% end %>
+  </tbody>
+</table>

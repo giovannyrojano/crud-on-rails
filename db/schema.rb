@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_30_033736) do
+ActiveRecord::Schema.define(version: 2021_05_31_050825) do
 
   create_table "detalles", force: :cascade do |t|
     t.integer "cantidad"
@@ -22,22 +22,22 @@ ActiveRecord::Schema.define(version: 2021_05_30_033736) do
     t.index ["libro_id"], name: "index_detalles_on_libro_id"
   end
 
-  create_table "libros", force: :cascade do |t|
-    t.string "titulo"
-    t.string "autor"
-    t.integer "anyo"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "multa", force: :cascade do |t|
+  create_table "infraccions", force: :cascade do |t|
     t.integer "valor"
     t.date "fecha"
     t.boolean "estado"
     t.integer "Prestamo_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["Prestamo_id"], name: "index_multa_on_Prestamo_id"
+    t.index ["Prestamo_id"], name: "index_infraccions_on_Prestamo_id"
+  end
+
+  create_table "libros", force: :cascade do |t|
+    t.string "titulo"
+    t.string "autor"
+    t.integer "anyo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "prestamos", force: :cascade do |t|
@@ -63,6 +63,6 @@ ActiveRecord::Schema.define(version: 2021_05_30_033736) do
 
   add_foreign_key "detalles", "Prestamos"
   add_foreign_key "detalles", "libros"
-  add_foreign_key "multa", "Prestamos"
+  add_foreign_key "infraccions", "Prestamos"
   add_foreign_key "prestamos", "Usuarios"
 end

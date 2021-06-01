@@ -10,23 +10,29 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+<div class="container">
+  <div class="row justify-content-center">
+	<div class="col-12 col-md-8 col-lg-6 pb-5">
+          <div class="field">
     <%= form.label :cantidad %>
-    <%= form.number_field :cantidad %>
+    <%= form.number_field :cantidad , class:"custom-select mr-sm-2"%>
   </div>
 
   <div class="field">
     <%= form.label :Prestamo_id %>
-    <%= form.text_field :Prestamo_id %>
+      <%= form.select :Prestamo_id, options_for_select(Prestamo.all.map{|s|[s.id]}) ,{}, {class: "custom-select mr-sm-2", style:"max-width:150px"} %>
   </div>
 
   <div class="field">
     <%= form.label :libro_id %>
-    <%= form.text_field :libro_id %>
+
+       <%= form.select :libro_id, options_for_select(Libro.all.map{|s|[s.titulo, s.id]}) ,{}, {class: "custom-select mr-sm-5", style:"max-width:150px"} %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+ <div class="actions">
+        <%= form.submit nil, :class => 'btn btn-primary' %>
+      </div>
 <% end %>
+  </div>
+  </div>
+  </div>

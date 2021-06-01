@@ -56,6 +56,12 @@ class PrestamosController < ApplicationController
     end
   end
 
+
+
+  def prestamo_usuario
+    @prestamos=Prestamo.joins("INNER JOIN usuarios ON usuarios.id = prestamos.Usuario_id AND usuarios.id ="+params[:Usuario_id].to_s)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_prestamo
@@ -66,4 +72,10 @@ class PrestamosController < ApplicationController
     def prestamo_params
       params.require(:prestamo).permit(:fecha, :estado, :Usuario_id)
     end
+
+    def prestamo_usuario_params
+      params.permit(:Usuario_id)
+    end
+
+
 end

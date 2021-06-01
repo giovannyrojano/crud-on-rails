@@ -1,14 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Libros</h1>
-
-<table>
-  <thead>
+<div class="text-right mb-3 mr-3">
+<%= button_to  new_libro_path, class: "btn btn-success",method: :get  do %>
+<i class="fas fa-plus"> Nuevo Libro</i>
+<% end %>
+</div>
+  <table class="table table-hover">
+  <thead class="thead-dark">
     <tr>
-      <th>Titulo</th>
-      <th>Autor</th>
-      <th>Anyo</th>
-      <th colspan="3"></th>
+    <th scope="col">Titulo</th>
+      <th scope="col">Autor</th>
+      <th scope="col">Anyo</th>
+      <th  scope="col" > <span style="padding-left:30%">Accion</span></th>
     </tr>
   </thead>
 
@@ -18,14 +22,19 @@
         <td><%= libro.titulo %></td>
         <td><%= libro.autor %></td>
         <td><%= libro.anyo %></td>
-        <td><%= link_to 'Show', libro %></td>
-        <td><%= link_to 'Edit', edit_libro_path(libro) %></td>
-        <td><%= link_to 'Destroy', libro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <td> <%= link_to libro , style: 'color: var(--blue); margin-right:5%' do %>
+        <i class="fas fa-info-circle fa-3x blue"></i>
+        <% end %>
+        <%= link_to edit_libro_path(libro), style: 'color: var(--yellow) ; margin-right:5%' do %>
+ <i class="fas fa-pen-square fa-3x yellow "></i>
+ <% end %>
+ <%= link_to  libro, method: :delete, data: { confirm: 'Are you sure?' } , style: 'color: var(--red)' do %> 
+  <i class="fas fa-minus-square fa-3x"></i>  
+  <% end %>
+  </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Libro', new_libro_path %>

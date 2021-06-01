@@ -1,14 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Detalles</h1>
-
-<table>
-  <thead>
+<div class="text-right mb-3 mr-3">
+<%= button_to  new_detalle_path, class: "btn btn-success",method: :get  do %>
+<i class="fas fa-plus"> Nuevo Detalle</i>
+<% end %>
+</div>
+ <table class="table table-hover">
+  <thead class="thead-dark">
     <tr>
-      <th>Cantidad</th>
-      <th>Prestamo</th>
-      <th>Libro</th>
-      <th colspan="3"></th>
+    <th scope="col">Cantidad</th>
+      <th scope="col"> No Prestamo</th>
+      <th scope="col">Libro</th>
+      <th  scope="col" > <span style="padding-left:30%">Accion</span></th>
     </tr>
   </thead>
 
@@ -16,16 +20,28 @@
     <% @detalles.each do |detalle| %>
       <tr>
         <td><%= detalle.cantidad %></td>
-        <td><%= detalle.Prestamo_id %></td>
-        <td><%= detalle.libro_id %></td>
-        <td><%= link_to 'Show', detalle %></td>
-        <td><%= link_to 'Edit', edit_detalle_path(detalle) %></td>
-        <td><%= link_to 'Destroy', detalle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to detalle.Prestamo_id,'prestamos/'+detalle.Prestamo_id.to_s  %></td>
+
+             <td><%= link_to detalle.libro.titulo ,'libros/'+detalle.libro_id.to_s  %></td>
+        <td  style="padding-left:5%">
+
+  <%= link_to detalle , style: 'color: var(--blue); margin-right:5%' do %>
+    <i class="fas fa-info-circle fa-3x blue"></i>
+    <% end %>
+ 
+ <%= link_to edit_detalle_path(detalle), style: 'color: var(--yellow) ; margin-right:5%' do %>
+ <i class="fas fa-pen-square fa-3x yellow "></i>
+ <% end %>
+ 
+ <%= link_to  detalle, method: :delete, data: { confirm: 'Are you sure?' } , style: 'color: var(--red)' do %> 
+  <i class="fas fa-minus-square fa-3x"></i>  
+  <% end %>
+  </td>
+
+ </tr>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Detalle', new_detalle_path %>

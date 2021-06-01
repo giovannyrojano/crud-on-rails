@@ -2,5 +2,12 @@
 
 <%= render 'form', usuario: @usuario %>
 
-<%= link_to 'Show', @usuario %> |
-<%= link_to 'Back', usuarios_path %>
+<div class="text-center">
+<%= link_to @usuario  ,style:'color: var(--blue)'  do%> 
+    <i class="fas fa-info-circle fa-3x blue"></i>
+    <% end %>
+|
+<%= link_to  usuarios_path ,style:'color: var(--orange)'  do %>
+<i class="fas fa-caret-square-left fa-3x"></i>
+<% end %>
+</div>

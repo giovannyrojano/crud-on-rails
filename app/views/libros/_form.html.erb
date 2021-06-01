@@ -10,23 +10,31 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+<div class="container">
+  <div class="row justify-content-center">
+	<div class="col-12 col-md-8 col-lg-6 pb-5">
+<div class="field">
     <%= form.label :titulo %>
-    <%= form.text_field :titulo %>
+    <%= form.text_field :titulo , class:"form-control col-md-9" %>
   </div>
 
   <div class="field">
-    <%= form.label :autor %>
-    <%= form.text_field :autor %>
+  <%= form.label :autor %>
+  <br>
+    <%= form.text_field :autor , class:"form-control col-md-9" %>
   </div>
 
   <div class="field">
     <%= form.label :anyo %>
-    <%= form.number_field :anyo %>
+    <%= form.number_field :anyo,class:"form-control col-md-9" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+ <div class="actions">
+        <%= form.submit nil, :class => 'btn btn-primary', style: 'margin: 0 25%'  %>
+      </div>
 <% end %>
+
+  </div>
+  </div>
+  </div>
+  

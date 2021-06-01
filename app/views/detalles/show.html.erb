@@ -1,19 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="text-center mt-2">
 
-<p>
+
+
+<h2 id="notice"><%= notice %></h2>
+<div class="row">
+
+<div class="col">
+
+<h2>
   <strong>Cantidad:</strong>
   <%= @detalle.cantidad %>
-</p>
+</h2>
+</div>
+<div class="col">
+<h2>
+  <strong> No Prestamo:</strong>
 
-<p>
-  <strong>Prestamo:</strong>
-  <%= @detalle.Prestamo_id %>
-</p>
-
-<p>
+    <%= link_to @detalle.Prestamo_id,'prestamos/'+@detalle.Prestamo_id.to_s  %>
+</h2>
+</div>
+<div class="col">
+<h2>
   <strong>Libro:</strong>
-  <%= @detalle.libro_id %>
-</p>
+   <%= link_to @detalle.libro.titulo.to_s+' - '+@detalle.libro.anyo.to_s ,'libros/'+@detalle.libro_id.to_s  %>
+</h2>
+</div>
 
-<%= link_to 'Edit', edit_detalle_path(@detalle) %> |
-<%= link_to 'Back', detalles_path %>
+</div>
+
+<%= link_to edit_detalle_path(@detalle) , style: 'color: var(--yellow) ;' do %>
+  
+  <i class="fas fa-pen-square fa-3x yellow "></i>
+  <% end %>
+
+|
+<%= link_to  detalles_path ,style:'color: var(--orange)'  do %>
+  <i class="fas fa-caret-square-left fa-3x"></i>
+  <% end %>
+
+</div>
